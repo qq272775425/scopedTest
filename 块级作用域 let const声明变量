@@ -1,0 +1,215 @@
+块级作用域 let const声明变量
+动态变量rest参数,在变量前面加... 函数中用for(var i of m){total+=i}
+...加在数组 会形成二维数组对数组进行拆解
+...加在变量上会让变量编程
+管道 字符串``上引号
+
+支持promise 不需要callback
+promise让代码更简更清晰,不需要回调 
+箭头函数=>
+expose import 
+腾讯
+3.16 一面 (45分钟)
+问题
+描述下原型链
+js作用域
+闭包
+垃圾回收
+如何读取对象属性不在原型链上找
+cookie一些属性
+浏览器缓存
+http和https协议握手过程、状态码
+同源策略、跨域解决办法
+web安全有哪些。XSS CSRF产生原理、如何防范。具体转义哪些字符为什么
+你觉得的自己优点和缺点
+平时怎么学前端
+二面（25分钟）//不知道算不算二面
+讲项目和遇到的难点问了下一些相关
+imutable.js实现原理
+Promise解决了什么问题、如何使用ES5实现
+然后约了明天早上10点半在线写代码，祝题主好运不用那么凉2333
+
+ 
+
+刚腾讯一面．．．岗位是前端实习生
+
+感觉凉了．．．
+
+居然没凉，3月14日下午收到了电话，这次说是要做一个在线的笔试，就在qq上共享桌面给面试官看，然后做面试官给的两个题目
+
+一面
+ 
+时间3.13
+
+自我介绍
+Html5
+React和vue的异同
+vue双向绑定实现原理，从view->model?model->view?
+React diff算法 fiber
+React新版本（16之后）变化，新特性
+判断数组的方法，es3和es5分别是什么
+web存储相关(cookie,sessionStorage,localStorage)
+事件模型
+web性能优化
+跨域问题,解决方法
+iframe相关
+异步,async/await,Promise内部存储原理
+webpack loader和plugin的区别
+快排和冒排排序，稳定与不稳定
+一个排列组合问题，也可以说是递归问题:100级台阶，一次可以走2步或者走一步，有多少种走法
+有好几个我都回答的不是很好
+．．．
+一首凉凉送给自己
+二面
+ 
+时间3.14
+有2个题目，题目要求如下:
+
+请在规定的时间完成下面2道题目，要求功能正常，代码具有可读性。时间：19:40 ~ 21:00。
+ 
+1.  页面内有一个正方形元素，实现对其拖拽和放下，需要考虑窗口的边界情况。
+    2.实现大整数相加算法，两个数用字符串模拟函数原型：function add(a, b) {}
+ 
+要求：代码具备一定的可读性，不能查阅相关资料。
+我提交的代码如下:
+第一题:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 600px;
+      background-color: grey;
+    }
+    .squre {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+      <div class="squre" id="squre">
+      </div>
+  </div>
+</body>
+<script>
+  var squre = document.getElementById('squre');
+ 
+  var xStart, yStart;
+  var isMoved = false;
+ 
+  // squre.addEventListener('click', e => move(e));
+  squre.addEventListener('mousedown', e => move(e));
+  squre.addEventListener('mousemove', e=> moving(e));
+  squre.addEventListener('mouseup', e => moved(e));
+ 
+  function move(e) {
+    isMoved = true;
+    var x = e.clientX;
+    var y = e.clientY;
+    console.log(x, y);
+  }
+ 
+  function moving(e) {
+    if (isMoved) {
+      var newX = e.clientX;
+      var newY = e.clientY;
+      console.log(newX, newY);
+      if (newX <= 500 && newY <= 500) {
+        squre.style.marginLeft = newX + 'px';
+        squre.style.marginTop = newY + 'px';
+      }
+    }
+  }
+ 
+  function moved(e) {
+    isMoved = false;
+  }
+ 
+</script>
+ 
+</html>
+第二题如下:
+
+function add(a = '123', b= '111') {
+    var value = '';
+    var arrA = a.split('');
+    var arrB = b.split('');
+    var num = 0;;
+    while (arrA.length && arrB.length) {
+        var newA = Number(arrA.pop());
+        var newB = Number(arrB.pop());
+        num = newA + newB;
+        value += num % 10;
+    }
+    console.log(value);
+    var newValue = value.split('');
+    newValue.reverse();
+    console.log(newValue);
+    var final = '';
+    newValue.map(x => {
+        final += x;
+    })
+    console.log(final);
+    return final;
+}
+ 
+console.log(123+111);
+add();
+两个题目都因为时间有点紧，还有不少需要完善的(甚至忘记删除调试代码了...)，第一题边界的准确距离判断，第二题返回的还是一个字符串，还需要处理一下
+
+阿里
+今天下午收到了阿里小哥哥的电话，最后说到了今天的结果会进行提交，现在还不知道情况
+1.简单的介绍一下你自己，你知道哪些技术
+2.为什么要选择web前端
+3.比较厉害的技术
+4.我自己提到了项目，人家具体的问了一下技术。
+5.聊了一些不是技术的东西，（这更难啊）
+6.说promise，没有promise怎么办
+7.事件委托
+8.jquery源代码
+9.后端的技术。。。
+10.要突破什么方面。
+11.node问了一些。
+ 
+ 
+面试官依然的人很好，给了我不少建议，谈论中我们还说到了es6，我说我崇拜阮一峰老师，最后小哥哥说老师是他们团队的。哇哇哇哇！！
+这次真是太感谢的面试官了，过不过我都很开心，还要不断努力。
+ 
+最后一句话：
+秋天见！
+（不喜欢千万不要喷吖，可别说题这么简单还不过啥的，扎心（笑哭））
+
+再来一份图片版的面试题
+
+
+
+这次面试的爱奇艺公司
+本人 非科班 数学 大三 211学校
+今天面试的格外不同是微信聊天：（有些没记住）
+1.说说盒子模型
+2.display
+3.说说vue react angularjs jquery的区别。
+4.聊聊项目
+5.问了一段js代码，输出结果是什么
+6.口述数组去重
+7.jquery的一个方法的实现原理
+8.怎么实现分栏
+9.怎么隐藏一个元素
+10.怎么用原生的js实现jquery的一个特定方法（你自己选的，我选的toggle）
+11.js的数据类型
+12.。。。。。
+今天这次面试聊的挺开心的，忘记记录问题了，不过人家也说今天问的题量有点大了，面试45分钟（我说话快），其他的问题我记不住了。
+希望这样能帮到你们吧，面试官人很好，直接告诉我让等下一次面试。今天真是谢谢给我机会了。
+最后还是这句话：
+秋天见！
+（不喜欢千万不要喷吖，可别说题这么简单还不过啥的，扎心（笑哭））

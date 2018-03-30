@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title> 页面名称 </title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<table id="table">
+    <tr><td>A</td><td>B</td></tr>
+    <tr><td>4</td><td>3</td></tr>
+    <tr><td>8</td><td>2</td></tr>
+    <tr><td>1</td><td>7</td></tr>
+    <tr><td>5</td><td>6</td></tr>
+    <tr><td>xxx</td><td>yyy</td></tr>
+</table>
+ 
+<script type="text/javascript">
+$(function(){
+    var tr = $(".tab tr");
+    var len = tr.eq(0).find("td").length;
+    for (var i = 0; i < len; i++) {
+        var max = -Infinity, td;
+        for (var j = 1; j < tr.length-1; j++) {
+            var tde = tr.eq(j).find("td").eq(i);
+            if (parseFloat(tde.text())>max) {
+                max = parseFloat(tde.text());
+                td = tde;
+            }
+        }
+        td.css("color","red");
+    }
+});
+</script>
+</body>
+</html>
